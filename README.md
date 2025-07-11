@@ -1,16 +1,30 @@
-# Student Feedback System - Desktop Application
+# Student Feedback System - Desktop Applications
 
-A comprehensive student feedback collection system built as a desktop application using Electron + Next.js + TypeScript.
+A comprehensive student feedback collection system available in two desktop versions:
+1. **Electron + Next.js** - Cross-platform desktop application
+2. **C# WPF** - Native Windows application with modern UI
 
-## 🚀 Features
+## 🚀 Available Applications
 
+### 📱 **Electron Version** (Cross-Platform)
 - **Native Desktop Application** for Windows, macOS, and Linux
+- **Web Technologies** - Built with Next.js + TypeScript
+- **Modern UI** - Tailwind CSS styling
+- **Cross-Platform** - Runs on all major operating systems
+
+### 🪟 **C# WPF Version** (Windows Native)
+- **Windows Native Application** - Optimized for Windows performance
+- **Modern UI Design** - Beautiful, attractive interface with animations
+- **Professional Styling** - Card-based layout with gradient backgrounds
+- **Enhanced User Experience** - Smooth animations and interactive feedback
+
+## 🎯 Common Features
+
 - **100% Google Sheets Integration** - No hardcoded data
 - **Smart Cascading Dropdowns** - Dynamic filtering based on sheet data
 - **Auto-Population** - Displays all subjects/teachers automatically
-- **Offline-Ready** - Works without constant internet connection
-- **Modern UI** - Built with Tailwind CSS
-- **Type-Safe** - Full TypeScript implementation
+- **Real-time Validation** - Instant feedback on form completion
+- **Automatic Sheet Creation** - Creates dated sheets with naming convention
 
 ## 🛠️ Tech Stack
 

@@ -5,6 +5,7 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <AssemblyTitle>Student Feedback System</AssemblyTitle>
     <AssemblyDescription>Desktop application for student feedback collection</AssemblyDescription>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
