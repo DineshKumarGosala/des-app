@@ -1,0 +1,85 @@
+<Window x:Class="StudentFeedbackApp.FeedbackWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Feedback Collection" 
+        Height="700" 
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#F9FAFB">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="White" Padding="30,20" BorderBrush="#E5E7EB" BorderThickness="0,0,0,1">
+            <StackPanel>
+                <TextBlock Text="Student Feedback Form" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
+                
+                <!-- Registration Number Highlight -->
+                <Border Background="#EFF6FF" BorderBrush="#3B82F6" BorderThickness="1" CornerRadius="6" Padding="10" Margin="0,0,0,15">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="👤" FontSize="16" Margin="0,0,10,0"/>
+                        <TextBlock Text="Registration Number: " FontWeight="SemiBold"/>
+                        <TextBlock x:Name="RegistrationNumberText" FontWeight="Bold" Foreground="#3B82F6"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Student Info -->
+                <TextBlock x:Name="StudentInfoText" FontSize="14" Foreground="#6B7280"/>
+                
+                <!-- Progress -->
+                <TextBlock x:Name="ProgressText" FontSize="12" Foreground="#6B7280" Margin="0,10,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Feedback Content -->
+        <ScrollViewer Grid.Row="1" Padding="30" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="SubjectsPanel">
+                <!-- Subject feedback panels will be added dynamically -->
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Footer -->
+        <Border Grid.Row="2" Background="White" Padding="30,20" BorderBrush="#E5E7EB" BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="BackButton" 
+                       Content="Back" 
+                       Background="#F3F4F6"
+                       Foreground="#374151"
+                       FontWeight="SemiBold"
+                       Padding="20,10"
+                       Margin="0,0,15,0"
+                       BorderThickness="0"
+                       Cursor="Hand"
+                       Click="BackButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="6" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#E5E7EB"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="SubmitButton" 
+                       Content="Submit Feedback" 
+                       Style="{StaticResource ModernButton}"
+                       IsEnabled="False"
+                       Click="SubmitButton_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

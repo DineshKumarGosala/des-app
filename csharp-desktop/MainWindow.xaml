@@ -1,0 +1,137 @@
+<Window x:Class="StudentFeedbackApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Student Feedback System" 
+        Height="600" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Background="#F9FAFB">
+    
+    <Grid>
+        <!-- Loading Panel -->
+        <StackPanel x:Name="LoadingPanel" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"
+                   Visibility="Collapsed">
+            <ProgressBar IsIndeterminate="True" Width="200" Height="20" Margin="10"/>
+            <TextBlock Text="Loading data from Google Sheets..." 
+                      HorizontalAlignment="Center" 
+                      FontSize="14" 
+                      Foreground="#6B7280"/>
+        </StackPanel>
+
+        <!-- Main Content -->
+        <ScrollViewer x:Name="MainContent" Padding="40">
+            <StackPanel MaxWidth="600">
+                <!-- Header -->
+                <StackPanel Margin="0,0,0,40">
+                    <TextBlock Text="Student Feedback System" Style="{StaticResource HeaderText}"/>
+                    <TextBlock Text="Please fill in your details to proceed with the feedback." 
+                              Style="{StaticResource SubHeaderText}"/>
+                </StackPanel>
+
+                <!-- Progress Indicators -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,30">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,20,0">
+                        <Ellipse Width="30" Height="30" Fill="#3B82F6" Margin="0,0,10,0"/>
+                        <TextBlock Text="Student Information" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <Rectangle Width="50" Height="2" Fill="#D1D5DB" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="30" Height="30" Fill="#D1D5DB" Margin="0,0,10,0"/>
+                        <TextBlock Text="Feedback Collection" VerticalAlignment="Center" Foreground="#6B7280"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Form Card -->
+                <Border Background="White" 
+                        CornerRadius="12" 
+                        Padding="30"
+                        Margin="0,0,0,20">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#000000" Opacity="0.1" ShadowDepth="4" BlurRadius="20"/>
+                    </Border.Effect>
+                    
+                    <StackPanel>
+                        <!-- Joining Year -->
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="Joining Year *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                            <ComboBox x:Name="JoiningYearComboBox" 
+                                     Style="{StaticResource ModernComboBox}"
+                                     SelectionChanged="JoiningYearComboBox_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Padding="5"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <!-- Branch -->
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="Branch *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                            <ComboBox x:Name="BranchComboBox" 
+                                     Style="{StaticResource ModernComboBox}"
+                                     IsEnabled="False"
+                                     SelectionChanged="BranchComboBox_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Padding="5"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <!-- Academic Year -->
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="Academic Year *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                            <ComboBox x:Name="YearComboBox" 
+                                     Style="{StaticResource ModernComboBox}"
+                                     IsEnabled="False"
+                                     SelectionChanged="YearComboBox_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Padding="5"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <!-- Section -->
+                        <StackPanel Margin="0,0,0,20">
+                            <TextBlock Text="Section *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                            <ComboBox x:Name="SectionComboBox" 
+                                     Style="{StaticResource ModernComboBox}"
+                                     IsEnabled="False"
+                                     SelectionChanged="SectionComboBox_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Padding="5"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <!-- Registration Number -->
+                        <StackPanel Margin="0,0,0,30">
+                            <TextBlock Text="Registration Number *" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                            <TextBox x:Name="RegistrationNumberTextBox" 
+                                    Style="{StaticResource ModernTextBox}"
+                                    Text=""
+                                    TextChanged="RegistrationNumberTextBox_TextChanged"/>
+                        </StackPanel>
+
+                        <!-- Continue Button -->
+                        <Button x:Name="ContinueButton" 
+                               Content="Continue to Feedback" 
+                               Style="{StaticResource ModernButton}"
+                               HorizontalAlignment="Right"
+                               IsEnabled="False"
+                               Click="ContinueButton_Click"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
